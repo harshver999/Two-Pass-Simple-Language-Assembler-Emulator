@@ -1,0 +1,163 @@
+/*
+						TITLE : Claims
+						
+						NAME  	          : HARSH RAJ
+						ROLL NUMBER       : 2301AI47
+						Declaration of Authorship:
+						This document is a submission for the course CS1202 
+						at the Department of Computer Science and Engineering, IIT Patna.
+						I have tried my level best to program the assembler and emulator with extensive debugging. Enjoyed it!
+
+*/
+
+-------------------
+SUBMISSION OVERVIEW:
+-------------------
+
+Project Files:
+--------------
+
+- The main project files, including `myasm.cpp`, `myemu.cpp`, `claims.txt`, and a full set of test files, have been submitted.
+
+Provided Test Files:
+____________________
+
+- All test files provided (`test1` to `test4.asm`) are stored in the folder "Provided Test Files" along with their respective outputs:
+  - `test1.asm` → Output files: `test1.log`, `test1.lst`, `test1.o`
+  - `test2.asm` → Output file: `test2.log`
+  - `test3.asm` → Output files: `test3.log`, `test3.lst`, `test3.o`
+  - `test4.asm` → Output files: `test4.log`, `test4.lst`, `test4.o`
+
+Additional Program:
+____________________
+
+
+- `bubble.asm` 
+- Implements the Bubble Sort Algorithm, with output files: 
+	`bubble.log` 
+	`bubble.lst`, 
+	`bubble.o`. 
+
+Functionality of this program has been tested and confirmed to be operational.
+--------------------------
+COMPLIATION INSTRUCTIONS : 
+--------------------------
+
+=>
+asm.cpp - 
+	Windows, Ubuntu, Linux - 
+	    
+		g++ myasm.cpp -o asm
+	   	./a.exe
+        <insert_file_name>.asm
+
+        =>
+emu.cpp - 
+	Windows, Ubuntu -
+		g++ myemu.cpp -o emu
+        ./a.exe
+        <insert_file_name>.object
+
+
+-----------------------------
+PROJECT FORMAT AND STRUCTURE:
+-----------------------------
+ASSEMBLER :-
+=> 
+asm.cpp is the main and the only file for the assembler
+=>
+
+Implementeed a 2-pass assembler in the language - C++.
+In the code, comments or self-descriptive variable names have been used.
+
+=>
+
+All instructions mentioned in the project detail file have been implemented (includeing SET instruction)
+
+=>
+
+The assembler outputs the required correct information in the form of three files
+       *  Log file in 		.log file for errors and warnings
+       *  Listing file in 	.lst file for listing 
+       *  Machine Code in 	.o file for machine code object
+		note-	if the program contains only warnings, it will generate the all 3 files for the .ams file 
+				but if the program contains errors, it will generate only the log file
+=>
+All errors diagnosed are written in .log file along with thier line numbers. For e.g unknown instruction , no such label , duplicate label.
+It also generates warnings whenever detected. For e.g there is a label declared but has not been used in the code.  
+=>
+Listing file is generated in the optimum format 
+		For e.g test1.lst - 
+		0 00000000 label: 
+		0 00000000 ldc 0
+		1 FFFFFB00 ldc -5
+		2 00000500 ldc +5
+		3 FFFFFF11 loop: br loop
+		4 00000011 br next
+		5 00000000 next: 
+		5 00000300 ldc loop
+		6 00000700 ldc var1
+		7 00000000 var1: data 0
+		A 00000012 HALT
+
+=>
+ Assembler successfully skips empty lines and comments
+=>
+The implementation of the instruction SET can be seen in the breakdown of the code 
+=>
+Assembler accepts decimal, octal and hexadecimal values in data 
+
+
+TESTING :- 
+
+=========================
+======== Given Test Files ->
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~
+1)test1.asm--
+	OUTPUT :
+	*test1.log - 
+		Line: 2 WARNING: Unused Label 
+		WARNING !! : HALT not found 
+		HURRAY NO ERRORS
+	*test1.lst (provided in the submission)
+	*test1.o (provided in the submission)
+
+
+~~~~~~~~~~~~~~~~~~~~~~
+2)test2.asm
+	OUTPUT: 
+	*test2.log - 
+		Line: 3 WARNING: Unused Label
+		WARNING !! : HALT not found
+		Line: 4 ERROR: Duplicate Label used
+		Line: 5 ERROR: Label not declared
+		Line: 6 ERROR: Invalid Label Format
+		Line: 7 ERROR: Operand is missing
+		Line: 8 ERROR: Extra Operand in zero operand operation
+		Line: 9 ERROR: Extra Operand present
+		Line: 10 ERROR: Invalid Label Name
+		Line: 11 ERROR: Invalid Operation Name
+		Line: 12 ERROR: Invalid Operation Name
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~
+3)test3.asm
+	OUTPUT:
+	*test3.log
+		HURRAY NO ERRORS
+
+	*test3.lst (provided in the submission)
+	*test3.o (provided in the submission)
+
+
+EMULATOR :-
+
+=>
+For all the test case (including the given test files , custom files and bubblesort program), the respective .o files are working with all the Functionalities
+
+-trace ->
+PC = 00000001, SP = 00000000, A = 0000002D, B = 00000000
+91 instructions executed

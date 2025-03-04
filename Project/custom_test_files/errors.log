@@ -1,0 +1,7 @@
+Line: 6 WARNING: Unused Label
+WARNING !! : HALT not found 
+Line: 4 ERROR: Invalid Label Format
+Line: 5 ERROR: Invalid label name
+Line: 7 ERROR: Duplicate label used
+Line: 8 ERROR: Missing Operand
+Line: 9 ERROR: Unexpected Operand in zero-operand command
